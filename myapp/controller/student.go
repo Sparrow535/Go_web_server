@@ -12,16 +12,25 @@ func AddStudent(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 
 	if err := decoder.Decode(&stud); err != nil {
-		w.Write([]byte("Invalid JSON data"))
+		response, _ := json.Marshal(map[string]string{"error": "invalid json body"})
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write(response)
 		return
 	}
 	defer r.Body.Close()
 
 	saveErr := stud.Create()
 	if saveErr != nil {
-		w.Write([]byte("Database error"))
+		response, _ := json.Marshal(map[string]string{"error": saveErr.Error()})
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write(response)
 		return
 	}
 
-	w.Write([]byte("response success."))
+	response, _ := json.Marshal(map[string]string{"status": "student added"})
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	w.Write(response)
 }
