@@ -14,7 +14,7 @@ student.html
             <li style = "background-color: rgb(14, 14, 14)" ><a href="student.html">Student</a></li>
             <li><a href="course.html">Course</a></li>
             <li><a href="enroll.html">Enrollment</a></li>
-            <li id = "Logout"><a href="">Logout</a></li>
+            <li id = "Logout" onclick="logout()"><a href="" >Logout</a></li>
         </ul>
     </div>
 
@@ -55,7 +55,7 @@ student.html
             </div>
             <br>
             <div class="row">
-                <button id="button-add" onclick="addStudent()">Add</button>
+                <button id="button-add" onclick="addStudent()" style="cursor: pointer;">Add</button>
             </div>
         </div>
       </div>
@@ -73,6 +73,9 @@ student.html
               </tr>
           </table>
       </div>
-    <script src="js/student.js"></script>
+
 </body>
+<script src="js/login.js"></script>
+<script src="js/student.js"></script>
+<script src="js/auth.js"></script>
 </html>

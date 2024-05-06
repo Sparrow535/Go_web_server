@@ -64,6 +64,10 @@ button {
     margin-left: 22%;
     cursor: pointer;
 }
+
+button:hover{
+    background-color: rgb(35, 35, 212);
+}
 .col-1{
     float: left;
     width: 22%;
@@ -82,10 +86,12 @@ button {
 #button-1{
     background-color: rgb(225, 60, 60);
     padding-right: 10px;
+    cursor: pointer;
 }
 #button-2{
     background-color: rgb(238, 241, 44);
     padding-right: 10px;
+    cursor: pointer;
 }
 table{
     /* border-collapse: collapse;   */
