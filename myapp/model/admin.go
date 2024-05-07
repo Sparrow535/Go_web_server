@@ -1,6 +1,6 @@
 package model
 
-import "myapp/dataStore/postgres"
+import "mygo/dataStore/postgres"
 
 type Admin struct {
 	FirstName string

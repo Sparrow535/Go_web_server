@@ -2,9 +2,7 @@
 // to interact with the database, helps to add the data in database
 package model
 
-import (
-	"myapp/dataStore/postgres"
-)
+import "mygo/dataStore/postgres"
 
 type Student struct {
 	StdId     int64  `json:"stdid"`
@@ -77,7 +75,7 @@ func GetAllStudents() ([]Student, error) {
 
 // Constant SQL statements for course operations
 const (
-	queryInsertCourse = "INSERT INTO course (cid, coursename) VALUES ($1, $2);"                // Insert a new course
+	queryInsertCourse = "INSERT INTO course (cid, coursename) VALUES ($1, $2);"               // Insert a new course
 	queryGetCourse    = "SELECT cid, coursename FROM course WHERE cid=$1;"                    // Get a course by ID
 	queryUpdateC      = "UPDATE course SET cid=$1, coursename=$2 WHERE cid=$3 RETURNING cid;" // Update a course
 	queryDeleteCourse = "DELETE FROM course WHERE cid=$1 RETURNING cid;"                      // Delete a course

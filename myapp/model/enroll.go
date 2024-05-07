@@ -1,6 +1,6 @@
 package model
 
-import "myapp/dataStore/postgres"
+import "mygo/dataStore/postgres"
 
 type Enroll struct {
 	StdId         int64  `json:"stdid"`
@@ -30,7 +30,7 @@ func GetAllEnrolls() ([]Enroll, error) {
 	}
 	//create slice of type Course
 	enrolls := []Enroll{}
-
+	
 	for rows.Next() {
 		var e Enroll
 		dbErr := rows.Scan(&e.StdId, &e.CourseID, &e.Date_Enrolled)
